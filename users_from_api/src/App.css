@@ -52,6 +52,12 @@ body {
   padding-bottom: 15px;
   border-radius: 5px;
 }
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: -4px;
+  padding: 10px;
+}
 
 .modal .content {
   margin: 40px;

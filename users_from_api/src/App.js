@@ -21,15 +21,8 @@ function App() {
   }, [total, currentPage]);
 
   const handleModal = user => {
-    if (show.id === user.id){
-      console.log("remove show");
-      setShow(false);
-    }
-    else
-{
-    console.log("set show");
-      setShow(user);
-}
+    if (show.id === user.id) setShow(false);
+    else setShow(user);
   }
 
   const getApiUserWithFetch = async (currentPage) => {
@@ -43,8 +36,9 @@ function App() {
       .catch(error => console.log(error));
   };
 
-  const handlePageChange = page => {
-    setCurrentPage(page);
+  const handlePageChange = newpage => {
+    if ((newpage > 0) && (newpage <= totalPages))
+      setCurrentPage(newpage);
   }
   return (
     <div className='App'>
@@ -60,8 +54,6 @@ function App() {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-      { console.log(!show)}
-      { console.log(show.id)}
       {show && <Modal userShow={show} />}
     </div>
   );
