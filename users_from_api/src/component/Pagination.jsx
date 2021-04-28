@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 const Pagination = ({totalPages, currentPage, onPageChange}) => {
+
     if (totalPages === 1) return null;
 
     const pages = _.range(1, totalPages+1);

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import UsersTable from './component/usersTable';
 import Pagination from './component/Pagination';
 import './App.css';
+import Modal from './component/modal';
 
 const apiUrl = `https://reqres.in/api/users`;
 
@@ -13,10 +14,23 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [total, setTotal] = useState();
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     getApiUserWithFetch(currentPage);
   }, [total, currentPage]);
+
+  const handleModal = user => {
+    if (show.id === user.id){
+      console.log("remove show");
+      setShow(false);
+    }
+    else
+{
+    console.log("set show");
+      setShow(user);
+}
+  }
 
   const getApiUserWithFetch = async (currentPage) => {
     fetch(`${apiUrl}?page=${currentPage}`)
@@ -29,25 +43,16 @@ function App() {
       .catch(error => console.log(error));
   };
 
-  const handleHover = user => {
-    console.log('Hover: ', user)   
-  }
-
   const handlePageChange = page => {
     setCurrentPage(page);
   }
-
-//     const movies = paginate(sorted, currentPage, pageSize);
-
-//     return {totalCount: movies};
-// }
-
   return (
     <div className='App'>
       <h1>Users</h1>
       {isLoading && <p>Wait I'm Loading users for you</p>}
       {!isLoading && <UsersTable
          users={userData}
+         showModal={handleModal}
        />
       }
       <Pagination
@@ -55,6 +60,9 @@ function App() {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
+      { console.log(!show)}
+      { console.log(show.id)}
+      {show && <Modal userShow={show} />}
     </div>
   );
 }

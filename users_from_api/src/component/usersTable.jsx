@@ -1,4 +1,4 @@
-function UsersTable({users}){
+function UsersTable({users, showModal}){
     if (users.length === 0  ) {
         return (
             <div>The data is loading...</div>
@@ -18,7 +18,7 @@ function UsersTable({users}){
                     </thead>
                     <tbody>
                         {users.map(user => (
-                            <tr className="clickable" onClick={() => console.log("click", user.id)} key= {user.id} >
+                            <tr className="clickable" onClick={() => showModal(user)} key= {user.id} >
                                 <td key= {user.id} >{user.id}</td>
                                 <td key= {user.first_name} >{user.first_name}</td>
                                 <td key= {user.last_name} >{user.last_name}</td>
