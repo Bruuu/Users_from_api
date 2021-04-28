@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import UsersTable from './component/usersTable';
 import Pagination from './component/Pagination';
+import './App.css';
 
 const apiUrl = `https://reqres.in/api/users`;
 

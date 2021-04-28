@@ -5,26 +5,30 @@ function UsersTable({users}){
         )
     }
     return (
-        <table className="table">
-            <thead>
-                <tr>
-                    <th className="" key= 'id' >ID</th>
-                    <th className="" key= 'first_name' >Given Name</th>
-                    <th className="" key= 'last_name' >Family Name</th>
-                    <th className="" key= 'email' >Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {users.map(user => (
-                    <tr key={user.id}>
-                        <td key={user.id}>{user.id}</td>
-                        <td key={user.first_name}>{user.first_name}</td>
-                        <td key={user.last_name}>{user.last_name}</td>
-                        <td key={user.email}>{user.email}</td>
-                    </tr>
-                ))}
-            </tbody>    
-        </table>
+        <div className="table-wrapper">
+            <div className="table-scroll">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th className="" key= 'id' >ID</th>
+                            <th className="" key= 'first_name' >Given Name</th>
+                            <th className="" key= 'last_name' >Family Name</th>
+                            <th className="" key= 'email' >Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map(user => (
+                            <tr className="clickable" onClick={() => console.log("click", user.id)} key= {user.id} >
+                                <td key= {user.id} >{user.id}</td>
+                                <td key= {user.first_name} >{user.first_name}</td>
+                                <td key= {user.last_name} >{user.last_name}</td>
+                                <td key= {user.email} >{user.email}</td>
+                            </tr>
+                        ))}
+                    </tbody>    
+                </table>
+            </div>
+        </div>
     )
 }
 export default UsersTable;
