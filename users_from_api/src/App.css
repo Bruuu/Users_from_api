@@ -97,10 +97,10 @@ nav ul li.active {
 .tbl-users td {
   padding: 5px 30px;
 }
-.tbl-users tr:nth-child(even) {
+.tbl-users tr:nth-child(even) td {
   background: var(--color-secondary);
 }
-.tbl-users tr:nth-child(odd) {
+.tbl-users tr:nth-child(odd) td {
   background: var(--color-primary);
 }
 .tbl-users th {
