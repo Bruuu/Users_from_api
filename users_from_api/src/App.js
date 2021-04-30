@@ -6,6 +6,7 @@ import './App.css';
 import Modal from './component/modal';
 
 const apiUrl = `https://reqres.in/api/users`;
+const perPage = 6;
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
   }
 
   const getApiUserWithFetch = async (currentPage) => {
-    fetch(`${apiUrl}?page=${currentPage}`)
+    fetch(`${apiUrl}?page=${currentPage}&per_page=${perPage}`)
       .then(results => results.json())
       .then(({total_pages, data}) => {
         setUserData(data);

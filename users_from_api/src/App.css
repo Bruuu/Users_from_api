@@ -58,6 +58,12 @@ nav ul li {
   margin-right: -4px;
   padding: 10px;
 }
+nav ul li {
+  color: #66b2ff;
+}
+nav ul li.active {
+  color: #000;
+}
 
 .modal .content {
   margin: 40px;

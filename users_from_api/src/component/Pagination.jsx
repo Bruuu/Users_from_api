@@ -1,22 +1,22 @@
 import _ from 'lodash';
+import PaginationItem from './PaginationItem';
 
 const Pagination = ({totalPages, currentPage, onPageChange}) => {
 
     if (totalPages === 1) return null;
 
     const pages = _.range(1, totalPages+1);
-    
+
     return (
         <nav>
             <ul className="pagination">
-            <li> <a className="page-link clickable" onClick={() => onPageChange(currentPage-1)}>&lt;&lt;</a></li>
+                <PaginationItem page = {1} currentPage={currentPage} onClick={onPageChange}  text='&lt;&lt;' />
+                <PaginationItem page = {currentPage-1 < 1 ? 1 : currentPage-1} currentPage={currentPage} onClick={onPageChange} text='&lt;' />
                 {pages.map(page => (
-                    <li className={ page === currentPage ? 'page-item active' : 'page-item' } key={page}>
-                        <a className="page-link clickable" onClick={() => onPageChange(page)}>{page}
-                        </a>
-                    </li>
+                    <PaginationItem page = {page} currentPage={currentPage} onClick={onPageChange}  />
                 ))}
-                <li> <a className="page-link clickable" onClick={() => onPageChange(currentPage+1 )}>&gt;&gt;</a></li>
+                <PaginationItem page = {currentPage+1 > totalPages ? totalPages : currentPage+1} currentPage={currentPage} onClick={onPageChange}  text='&gt;' />
+                <PaginationItem page = {totalPages} currentPage={currentPage} onClick={onPageChange}  text='&gt;&gt;' />
             </ul>
         </nav>
     );
