@@ -55,7 +55,7 @@ function App() {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-      {show && <Modal userShow={show} />}
+      {show && <Modal userShow={show} onClick={handleModal} />}
     </div>
   );
 }

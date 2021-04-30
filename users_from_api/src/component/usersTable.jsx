@@ -7,7 +7,7 @@ function UsersTable({users, showModal}){
     return (
         <div className="table-wrapper">
             <div className="table-scroll">
-                <table className="table">
+                <table className="tbl-users">
                     <thead>
                         <tr>
                             <th className="" key= 'id' >ID</th>
