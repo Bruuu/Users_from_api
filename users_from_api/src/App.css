@@ -138,6 +138,9 @@ nav ul li.active {
   left: 0;
   z-index: 1;
 }
+.search {
+  padding-bottom: 15px;
+}
 
 .clickable:hover {
   cursor: pointer;
