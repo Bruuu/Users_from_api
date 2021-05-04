@@ -28,13 +28,14 @@ body {
   width: 100px;
 }
 .table-scroll {
-  max-height: 120px;
-  max-width: 250px;
+  max-height: 100%;
+  max-width: 100%;
   overflow: auto;
   position: relative;
 }
 .modal {
   position: absolute;
+  background: var(--color-primary);
   top: 200px;
   left: 350px;
   border: 1px solid #a5a4a4;
@@ -116,8 +117,6 @@ nav ul li.active {
 .tbl-users {
   white-space: nowrap;
   table-layout: fixed;
-  max-height: 120px;
-  max-width: 250px;
 }
 .tbl-users thead th {
   position: sticky;
